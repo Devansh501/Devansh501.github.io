@@ -1,0 +1,136 @@
+{
+  "personal_information": {
+    "name": "Devansh Bajpai",
+    "role": "Software Developer",
+    "email": "devanshbajpai105@gmail.com",
+    "phone": "8303137340"
+  },
+  "professional_experience": [
+    {
+      "title": "Software Developer",
+      "company": "Microlit",
+      "website": "https://www.microlit.com/",
+      "location": "Lucknow, Uttar Pradesh",
+      "duration": "07/2025-Present",
+      "highlights": [
+        "Architected an Electron-based desktop suite to control liquid handling stations, facilitating real-time bidirectional communication with machine firmware via high-performance STOMP WebSockets.",
+        "Streamlined machine telemetry storage by syncing local data points to AWS RDS via Hibernate, achieving 20% faster query execution through indexed mapping.",
+        "Deployed a real-time monitoring dashboard on AWS EC2, centralizing protocol access and user-specific analytics with 35+ metrics.",
+        "Developed an intuitive protocol designer in Electron, enabling users to program complex liquid handling sequences with a 95% reduction in setup time via reusable templates."
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "Vanco",
+      "website": "https://www.vanco.ai/",
+      "location": "Bangalore, India",
+      "duration": "01/2025-06/2025",
+      "highlights": [
+        "Engineered a Spring Boot backend for construction management, automating 12+ project milestones and reducing manual data entry by 33% through centralized stage tracking.",
+        "Streamlined payment by engineering a milestone-based 3-layer system with automated provider fallback logic.",
+        "Built a high-performance React dashboard using optimized state management, resulting in a 40% faster initial load time for complex project financial summaries as recorded in lighthouse.",
+        "Strengthened data security by implementing Spring Security RBAC, standardizing access controls across 5+ user roles to prevent unauthorized data exposure."
+      ]
+    },
+    {
+      "title": "Software Developer",
+      "company": "Sahaj Gaming",
+      "website": "https://sahajgaming.com/",
+      "location": "Bangalore, India",
+      "duration": "04/2024-12/2024",
+      "highlights": [
+        "Migrated microservices based backend architechture from google cloud platform to Amazon AWS resulting in a cost saving of 12% and minimal downtime.",
+        "Developed and tested Payment systems in 1Ludo Cash Application using Nestjs, resulting in a increase in payment gateway efficiency by 80%.",
+        "Designed and deployed the 1Ludo Cash Application launch website using ReactJs and GCP Cloud Functions, with an average conversion rate of 68%.",
+        "Enhanced the leaderboard with a modular, switchable ranking system at runtime, enabling support for 7 additional in-game templates."
+      ]
+    },
+    {
+      "title": "Frontend Developer Intern",
+      "company": "Farmart",
+      "website": "https://www.farmart.co/",
+      "location": "Gurgaon, India",
+      "duration": "11/2023-02/2024",
+      "highlights": [
+        "Migrated Community Feed App from ReactJs to NextJs codebase resulting in an 62% increase in SEO.",
+        "Created the Page Manager Functionality for the Customer Control Panel using ReactJs and ReduxJs with over 6+ functionalities embedded in the dashboard.",
+        "Revamped Android screens using WebView to support seamless access for web users."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google Cloud Certifications (Associate Cloud Engineer & Digital Leader)",
+      "issuer": "Google Cloud / Credly",
+      "url": "https://www.credly.com/users/devanshbajpai"
+    },
+    {
+      "name": "The Complete 2024 Web Development Bootcamp by Dr. Angela Yu",
+      "issuer": "Udemy",
+      "url": "https://www.udemy.com/certificate/UC-5f888258-9be0-4c99-ba37-d9b29791163c/"
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "SQL",
+      "C++"
+    ],
+    "frameworks": [
+      "Springboot",
+      "NodeJs",
+      "NestJs",
+      "ReactJs",
+      "NextJs",
+      "FastAPI",
+      "PostgresSQL",
+      "Django",
+      "Electron"
+    ],
+    "libraries": [
+      "Hibernate",
+      "Spring JPA",
+      "TypeORM",
+      "MaterialUI",
+      "Spring Security"
+    ],
+    "cloud": [
+      "Google Cloud Platform",
+      "Amazon Web Services"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Morpher, File Converter Application",
+      "duration": "10/2023-10/2023",
+      "github": "https://github.com/Devansh501/Morpher",
+      "deployed": "https://morpher-kappa.vercel.app/",
+      "highlights": [
+        "Engineered a solution for seamless conversion of audio, video, and image files in 20+ formats, eliminating the need for server uploads and enhancing user privacy.",
+        "Leveraged the ffmpeg.wasm library to enable conversions across 20+ formats.",
+        "Achieved a user-friendly interface, ensuring a positive experience for users performing diverse file conversions."
+      ]
+    },
+    {
+      "name": "Link-Tree Application",
+      "duration": "02/2023-05/2023",
+      "github": "https://github.com/Devansh501/Linktree-app",
+      "deployed": "https://linktree-chi.vercel.app/",
+      "highlights": [
+        "This is a Next.js-based application with MongoDB, Express.js, and Node.js, enabling users to create personalised linktrees with 10+ social media plugins.",
+        "Integrated an interface for link management, allowing users to add, edit, and delete links to showcase content effectively with 80% in-page visibilty.",
+        "Introduced shareable public links in Linktree for profile access without authentication."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelors of Technology (Computer Science and Engineering)",
+    "institution": "Madan Mohan Malaviya University of Technology",
+    "gpa": "7.49 C.G.P.A.",
+    "duration": "07/2019-07/2023",
+    "location": "Gorakhpur, India"
+  }
+}
