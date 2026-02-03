@@ -3,12 +3,18 @@
     "name": "Devansh Bajpai",
     "role": "Software Developer",
     "email": "devanshbajpai105@gmail.com",
-    "phone": "8303137340"
+    "phone": "8303137340",
+    "whatsapp":"9453623480",
+    "profile_image_url": "https://drive.google.com/file/d/1Ukvl2jMkDuhxqWjCEiujSr-s36Q9H3tr/view?usp=sharing",
+    "github": "https://github.com/Devansh501",
+    "linkedin": "https://www.linkedin.com/in/devansh501/",
+    "resume_link":"https://drive.google.com/file/d/1ZSBelsHEwVJgxgo-BU5FB6UFa9c6G_c6/view?usp=sharing"
   },
   "professional_experience": [
     {
       "title": "Software Developer",
       "company": "Microlit",
+      "logo_url": "https://www.microlit.com/favicon.ico",
       "website": "https://www.microlit.com/",
       "location": "Lucknow, Uttar Pradesh",
       "duration": "07/2025-Present",
@@ -22,6 +28,7 @@
     {
       "title": "Software Developer",
       "company": "Vanco",
+      "logo_url": "https://www.vanco.ai/vanco_img_logo.ico",
       "website": "https://www.vanco.ai/",
       "location": "Bangalore, India",
       "duration": "01/2025-06/2025",
@@ -35,6 +42,7 @@
     {
       "title": "Software Developer",
       "company": "Sahaj Gaming",
+      "logo_url": "https://sahajgaming.com/images/favicon.png",
       "website": "https://sahajgaming.com/",
       "location": "Bangalore, India",
       "duration": "04/2024-12/2024",
@@ -48,6 +56,7 @@
     {
       "title": "Frontend Developer Intern",
       "company": "Farmart",
+      "logo_url": "https://framerusercontent.com/images/9H823HqRIlstYmlIqalitg31RMQ.png",
       "website": "https://www.farmart.co/",
       "location": "Gurgaon, India",
       "duration": "11/2023-02/2024",
@@ -106,24 +115,28 @@
     {
       "name": "Morpher, File Converter Application",
       "duration": "10/2023-10/2023",
+      "image_url": "https://github.com/user-attachments/assets/f4df0b65-bcad-4d11-813d-d6113e6a724f",
       "github": "https://github.com/Devansh501/Morpher",
       "deployed": "https://morpher-kappa.vercel.app/",
       "highlights": [
         "Engineered a solution for seamless conversion of audio, video, and image files in 20+ formats, eliminating the need for server uploads and enhancing user privacy.",
         "Leveraged the ffmpeg.wasm library to enable conversions across 20+ formats.",
         "Achieved a user-friendly interface, ensuring a positive experience for users performing diverse file conversions."
-      ]
+      ],
+      "technologies":["NextJs", "FFmpeg", "RadixUI"]
     },
     {
       "name": "Link-Tree Application",
       "duration": "02/2023-05/2023",
+      "image_url": "https://github.com/Devansh501/Linktree-app/assets/81950589/bd084d94-2626-4bcc-b7b1-10ed893cb3ae",
       "github": "https://github.com/Devansh501/Linktree-app",
       "deployed": "https://linktree-chi.vercel.app/",
       "highlights": [
         "This is a Next.js-based application with MongoDB, Express.js, and Node.js, enabling users to create personalised linktrees with 10+ social media plugins.",
         "Integrated an interface for link management, allowing users to add, edit, and delete links to showcase content effectively with 80% in-page visibilty.",
         "Introduced shareable public links in Linktree for profile access without authentication."
-      ]
+      ],
+      "technologies":["NextJs", "NodeJs", "Mongodb","MaterialUI"]
     }
   ],
   "education": {
