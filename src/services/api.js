@@ -1,6 +1,6 @@
 export const fetchPortfolioData = async () => {
   try {
-    const response = await fetch(import.meta.env.VITE_API_URL);
+    const response = await fetch(import.meta.env.VITE_API_URL || '/data.json');
     if (!response.ok) {
       throw new Error('Failed to fetch data');
     }
