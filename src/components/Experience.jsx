@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getGoogleDriveDirectLink } from '../utils/imageUtils';
 
 const Experience = ({ experience = [], education = {}, certifications = [] }) => {
   const [activeTab, setActiveTab] = useState('work');
@@ -51,39 +52,42 @@ const Experience = ({ experience = [], education = {}, certifications = [] }) =>
                 exit: { opacity: 0 }
               }}
             >
-              {experience.map((job, idx) => (
-                <motion.div 
-                  key={idx} 
-                  variants={{
-                    hidden: { opacity: 0, x: -20 },
-                    visible: { opacity: 1, x: 0 },
-                    exit: { opacity: 0, x: -20 }
-                  }}
-                  className="relative pl-8 border-l border-zinc-800 ml-3 pb-12 last:pb-0"
-                >
-                  {job.logo_url ? (
-                    <div className="absolute -left-5 top-0 w-10 h-10 rounded-full overflow-hidden border-2 border-zinc-800 bg-zinc-900 z-10">
-                      <img 
-                        src={job.logo_url} 
-                        alt={job.company} 
-                        className="w-full h-full object-cover"
-                      />
+              {experience.map((job, idx) => {
+                const logoUrl = getGoogleDriveDirectLink(job.logo_url);
+                return (
+                  <motion.div
+                    key={idx}
+                    variants={{
+                      hidden: { opacity: 0, x: -20 },
+                      visible: { opacity: 1, x: 0 },
+                      exit: { opacity: 0, x: -20 }
+                    }}
+                    className="relative pl-8 border-l border-zinc-800 ml-3 pb-12 last:pb-0"
+                  >
+                    {logoUrl ? (
+                      <div className="absolute -left-5 top-0 w-10 h-10 rounded-full overflow-hidden border-2 border-zinc-800 bg-zinc-900 z-10">
+                        <img
+                          src={logoUrl}
+                          alt={job.company}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-background z-10" />
+                    )}
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
+                      <h3 className="text-lg font-medium text-primary">{job.company}</h3>
+                      <span className="text-sm text-zinc-500">{job.duration}</span>
                     </div>
-                  ) : (
-                    <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-background z-10" />
-                  )}
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                    <h3 className="text-lg font-medium text-primary">{job.company}</h3>
-                    <span className="text-sm text-zinc-500">{job.duration}</span>
-                  </div>
-                  <div className="text-sm text-zinc-400 font-medium mb-3">{job.title}</div>
-                  <ul className="list-disc list-outside ml-4 space-y-2 text-sm text-zinc-400">
-                    {job.highlights?.map((point, i) => (
-                      <li key={i} className="pl-1">{point}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                    <div className="text-sm text-zinc-400 font-medium mb-3">{job.title}</div>
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-sm text-zinc-400">
+                      {job.highlights?.map((point, i) => (
+                        <li key={i} className="pl-1">{point}</li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                );
+              })}
             </motion.div>
           ) : activeTab === 'education' ? (
             <motion.div
@@ -116,7 +120,7 @@ const Experience = ({ experience = [], education = {}, certifications = [] }) =>
               className="grid gap-4 sm:grid-cols-2"
             >
               {certifications.map((cert, idx) => (
-                <a 
+                <a
                   key={idx}
                   href={cert.url}
                   target="_blank"
