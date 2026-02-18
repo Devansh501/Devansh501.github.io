@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { usePortfolioData } from '../hooks/usePortfolioData';
 import Experience from '../components/Experience';
 import { motion } from 'framer-motion';
@@ -45,8 +46,8 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { type: "spring", stiffness: 300, damping: 24 }
   }
@@ -55,7 +56,7 @@ const itemVariants = {
 const Home = () => {
   const { data, loading, error } = usePortfolioData();
 
-  if (loading) return <div className="flex justify-center pt-20"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"/></div>;
+  if (loading) return <div className="flex justify-center pt-20"><div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>;
   if (error) return <div className="text-red-500 pt-20 text-center">Failed to load content.</div>;
   if (!data) return null;
 
@@ -76,30 +77,30 @@ const Home = () => {
         >
           <div className="flex-1 space-y-4">
             <div className="flex items-center gap-2 mb-2">
-               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-               <span className="text-xs font-medium text-zinc-500 uppercase tracking-wider">Available for work</span>
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs font-medium text-zinc-500 uppercase tracking-wider">Available for work</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
               hi, {personal_information.name.split(' ')[0].toLowerCase()} here. <span className="animate-wave inline-block origin-[70%_70%]">👋</span>
             </h1>
             <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-              I'm a {personal_information.role.toLowerCase()} who enjoys building 
+              I'm a {personal_information.role.toLowerCase()} who enjoys building
               robust systems and intuitive interfaces. Currently building innovative software solutions at <span className="text-zinc-200 font-medium">{currentCompany}</span>.
             </p>
           </div>
-          
+
           <div className="shrink-0">
-             <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-zinc-800 shadow-xl relative group">
-                <img 
-                  src={profileImage} 
-                  alt={personal_information.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-             </div>
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-2 border-zinc-800 shadow-xl relative group">
+              <img
+                src={profileImage}
+                alt={personal_information.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
           </div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="flex flex-wrap items-center gap-4"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,41 +115,41 @@ const Home = () => {
             <FileText size={16} />
             Resume
           </a>
-          <a
-            href="#experience"
+          <Link
+            to="/projects"
             className="flex items-center gap-2 px-5 py-2.5 border border-zinc-700 hover:bg-zinc-800 rounded-full font-medium text-sm transition-colors text-zinc-300"
           >
-             View Work
-             <ArrowRight size={16} />
-          </a>
-          
+            View Work
+            <ArrowRight size={16} />
+          </Link>
+
           <div className="flex items-center gap-2 px-2 sm:ml-2 border-l border-zinc-800 pl-4 py-1">
-            <a 
-              href={personal_information.github} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={personal_information.github}
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-colors"
               title="GitHub"
             >
               <Github size={18} />
             </a>
-            <a 
-              href={personal_information.linkedin} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={personal_information.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-colors"
               title="LinkedIn"
             >
               <Linkedin size={18} />
             </a>
-            <a 
-              href={`mailto:${personal_information.email}`} 
+            <a
+              href={`mailto:${personal_information.email}`}
               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-colors"
               title="Email"
             >
               <Mail size={18} />
             </a>
-            <a 
+            <a
               href={`https://wa.me/${personal_information.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -157,8 +158,8 @@ const Home = () => {
             >
               <FaWhatsapp size={18} />
             </a>
-            <a 
-              href={`tel:${personal_information.phone}`} 
+            <a
+              href={`tel:${personal_information.phone}`}
               className="p-2 text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-full transition-colors flex items-center gap-2"
               title="Phone"
             >
@@ -171,39 +172,39 @@ const Home = () => {
 
       <section id="experience">
         <h2 className="text-2xl font-bold tracking-tight mb-2">Experience</h2>
-         <Experience experience={professional_experience} education={education} certifications={certifications} />
+        <Experience experience={professional_experience} education={education} certifications={certifications} />
       </section>
 
       <section>
         <h2 className="text-2xl font-bold tracking-tight mb-6">Skills</h2>
         <div className="grid gap-8">
-           {Object.entries(skills).map(([category, items]) => (
-             <div key={category}>
-               <h3 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">{category}</h3>
-               <motion.div 
-                  className="flex flex-wrap gap-3"
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-               >
-                 {items.map((skill) => (
-                   <motion.div 
+          {Object.entries(skills).map(([category, items]) => (
+            <div key={category}>
+              <h3 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">{category}</h3>
+              <motion.div
+                className="flex flex-wrap gap-3"
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {items.map((skill) => (
+                  <motion.div
                     key={skill}
                     variants={itemVariants}
                     className="group"
-                   >
-                     <div className="flex items-center gap-2 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm text-zinc-300 group-hover:border-zinc-700 group-hover:bg-zinc-800/50 transition-all cursor-default relative overflow-hidden">
-                       <span className="text-zinc-400 group-hover:text-zinc-100 transition-colors text-lg">
-                          {skillIcons[skill] || <FaCode />}
-                       </span>
-                       <span className="relative z-10">{skill}</span>
-                     </div>
-                   </motion.div>
-                 ))}
-               </motion.div>
-             </div>
-           ))}
+                  >
+                    <div className="flex items-center gap-2 px-3 py-2 bg-zinc-900 border border-zinc-800 rounded-md text-sm text-zinc-300 group-hover:border-zinc-700 group-hover:bg-zinc-800/50 transition-all cursor-default relative overflow-hidden">
+                      <span className="text-zinc-400 group-hover:text-zinc-100 transition-colors text-lg">
+                        {skillIcons[skill] || <FaCode />}
+                      </span>
+                      <span className="relative z-10">{skill}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          ))}
         </div>
       </section>
 
