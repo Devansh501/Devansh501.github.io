@@ -1,143 +1,238 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getGoogleDriveDirectLink } from '../utils/imageUtils';
+import { Briefcase, GraduationCap, Award, Calendar, MapPin, ExternalLink, ChevronRight } from 'lucide-react';
 
 const Experience = ({ experience = [], education = {}, certifications = [] }) => {
   const [activeTab, setActiveTab] = useState('work');
 
   const tabs = [
-    { id: 'work', label: 'Work' },
-    { id: 'certifications', label: 'Certifications' },
-    { id: 'education', label: 'Education' },
+    { id: 'work', label: 'Work', icon: Briefcase },
+    { id: 'education', label: 'Education', icon: GraduationCap },
+    { id: 'certifications', label: 'Certifications', icon: Award },
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    },
+    exit: { opacity: 0 }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 }
+    },
+    exit: { opacity: 0, y: -20 }
+  };
 
   return (
     <div className="mt-12">
-      <div className="flex space-x-1 bg-zinc-900/50 p-1 rounded-xl w-fit mb-8 border border-zinc-800">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`
-              relative px-6 py-2 text-sm font-medium rounded-lg transition-colors
-              ${activeTab === tab.id ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'}
-            `}
-          >
-            {activeTab === tab.id && (
-              <motion.div
-                layoutId="activeTab"
-                className="absolute inset-0 bg-zinc-800 rounded-lg shadow-sm"
-                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-              />
-            )}
-            <span className="relative z-10">{tab.label}</span>
-          </button>
-        ))}
+      <div className="flex flex-wrap justify-center gap-2 p-1.5 bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-2xl w-full sm:w-fit mb-12">
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          const isActive = activeTab === tab.id;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
+                relative px-4 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium rounded-xl transition-all duration-300 flex items-center gap-2 sm:gap-2.5 whitespace-nowrap flex-1 sm:flex-none justify-center
+                ${isActive ? 'text-white' : 'text-zinc-400 hover:text-zinc-200'}
+              `}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-zinc-800 shadow-md rounded-xl"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-2 sm:gap-2.5">
+                <Icon size={16} className={`sm:w-[18px] sm:h-[18px] ${isActive ? 'text-primary' : ''}`} />
+                {tab.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
-      <div className="relative min-h-[300px]">
+      <div className="min-h-[400px]">
         <AnimatePresence mode="wait">
-          {activeTab === 'work' ? (
+          {activeTab === 'work' && (
             <motion.div
               key="work"
+              variants={containerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.1 }
-                },
-                exit: { opacity: 0 }
-              }}
+              className="space-y-6 sm:space-y-8"
             >
               {experience.map((job, idx) => {
                 const logoUrl = getGoogleDriveDirectLink(job.logo_url);
                 return (
                   <motion.div
                     key={idx}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: { opacity: 1, x: 0 },
-                      exit: { opacity: 0, x: -20 }
-                    }}
-                    className="relative pl-8 border-l border-zinc-800 ml-3 pb-12 last:pb-0"
+                    variants={itemVariants}
+                    className="relative group"
                   >
-                    {logoUrl ? (
-                      <div className="absolute -left-5 top-0 w-10 h-10 rounded-full overflow-hidden border-2 border-zinc-800 bg-zinc-900 z-10">
-                        <img
-                          src={logoUrl}
-                          alt={job.company}
-                          className="w-full h-full object-cover"
-                        />
+                    <div className="relative p-5 sm:p-8 rounded-3xl bg-zinc-900/30 border border-zinc-800/60 hover:border-zinc-700 hover:bg-zinc-900/50 transition-all duration-300 backdrop-blur-sm group-hover:shadow-xl group-hover:shadow-primary/5">
+                      <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 mb-4 sm:mb-6">
+                        <div className="shrink-0">
+                          {logoUrl ? (
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-white p-1.5 border border-zinc-700 shadow-lg">
+                              <img
+                                src={logoUrl}
+                                alt={job.company}
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-800 flex items-center justify-center border border-zinc-700">
+                              <Briefcase size={28} className="text-zinc-500" />
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex-1">
+                          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-2">
+                            <div>
+                              <h3 className="text-xl sm:text-2xl font-bold text-zinc-100 group-hover:text-primary transition-colors duration-300 mb-1">{job.title}</h3>
+                              <div className="flex flex-wrap items-center gap-2 text-zinc-400 font-medium text-base sm:text-lg">
+                                <span>{job.company}</span>
+                                {job.website && (
+                                  <a
+                                    href={job.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-zinc-500 hover:text-primary transition-colors"
+                                  >
+                                    <ExternalLink size={16} />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-zinc-500 bg-zinc-800/50 px-3 py-1 rounded-full border border-zinc-800 self-start mt-2 sm:mt-0">
+                              <Calendar size={14} />
+                              <span className="whitespace-nowrap font-medium">{job.duration}</span>
+                            </div>
+                          </div>
+
+                          {job.location && (
+                            <div className="flex items-center gap-1.5 text-sm text-zinc-500 mb-4">
+                              <MapPin size={16} />
+                              <span>{job.location}</span>
+                            </div>
+                          )}
+
+                          <ul className="space-y-3 mt-4">
+                            {job.highlights?.map((point, i) => (
+                              <li key={i} className="text-zinc-300 text-base leading-relaxed flex items-start gap-3">
+                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 group-hover:bg-primary transition-colors duration-300" />
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    ) : (
-                      <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-700 border-2 border-background z-10" />
-                    )}
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2">
-                      <h3 className="text-lg font-medium text-primary">{job.company}</h3>
-                      <span className="text-sm text-zinc-500">{job.duration}</span>
                     </div>
-                    <div className="text-sm text-zinc-400 font-medium mb-3">{job.title}</div>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-sm text-zinc-400">
-                      {job.highlights?.map((point, i) => (
-                        <li key={i} className="pl-1">{point}</li>
-                      ))}
-                    </ul>
                   </motion.div>
                 );
               })}
             </motion.div>
-          ) : activeTab === 'education' ? (
+          )}
+
+          {activeTab === 'education' && (
             <motion.div
               key="education"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.2 }}
-              className="border border-zinc-800 rounded-xl p-6 bg-zinc-900/20"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="space-y-6 sm:space-y-8"
             >
-              <div className="flex flex-col gap-1">
-                <h3 className="text-xl font-semibold text-primary">{education.institution}</h3>
-                <p className="text-zinc-400">{education.degree}</p>
-                <div className="flex gap-4 mt-2 text-sm text-zinc-500">
-                  <span>{education.duration}</span>
-                  <span>•</span>
-                  <span>{education.location}</span>
-                  <span>•</span>
-                  <span className="text-zinc-300 font-medium">{education.gpa}</span>
+              <motion.div variants={itemVariants} className="relative p-5 sm:p-8 rounded-3xl bg-zinc-900/30 border border-zinc-800/60 hover:border-zinc-700 hover:bg-zinc-900/50 transition-all duration-300 backdrop-blur-sm group">
+                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8">
+                  <div className="shrink-0 pt-1">
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-zinc-800/80 flex items-center justify-center border border-zinc-700 text-zinc-400 group-hover:text-primary group-hover:border-primary/30 transition-all duration-300">
+                      <GraduationCap size={32} />
+                    </div>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-zinc-100 mb-1 group-hover:text-primary transition-colors duration-300">{education.institution}</h3>
+                      <p className="text-lg sm:text-xl text-zinc-300">{education.degree}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="flex items-center gap-3 text-base text-zinc-400 bg-zinc-800/30 px-4 py-3 rounded-xl border border-zinc-800/50">
+                        <Calendar size={18} className="text-zinc-500" />
+                        <span>{education.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-base text-zinc-400 bg-zinc-800/30 px-4 py-3 rounded-xl border border-zinc-800/50">
+                        <MapPin size={18} className="text-zinc-500" />
+                        <span>{education.location}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-base text-zinc-400 bg-zinc-800/30 px-4 py-3 rounded-xl border border-zinc-800/50 sm:col-span-2">
+                        <Award size={18} className="text-zinc-500" />
+                        <span>GPA: <span className="text-zinc-200 font-semibold">{education.gpa}</span></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-          ) : (
+          )}
+
+          {activeTab === 'certifications' && (
             <motion.div
               key="certifications"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.2 }}
-              className="grid gap-4 sm:grid-cols-2"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="grid gap-6 sm:grid-cols-2"
             >
               {certifications.map((cert, idx) => (
-                <a
+                <motion.a
                   key={idx}
+                  variants={itemVariants}
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 border border-zinc-800 rounded-xl bg-zinc-900/20 hover:bg-zinc-800/40 hover:border-zinc-700 transition-all group"
+                  className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-3xl bg-zinc-900/30 border border-zinc-800/60 hover:border-primary/50 hover:bg-zinc-900/60 transition-all duration-300 backdrop-blur-sm overflow-hidden"
                 >
-                  <h3 className="font-medium text-zinc-200 group-hover:text-primary transition-colors line-clamp-2 mb-1">
-                    {cert.name}
-                  </h3>
-                  <p className="text-sm text-zinc-500">{cert.issuer}</p>
-                </a>
+                  <div className="absolute top-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-0 translate-x-4">
+                    <ExternalLink size={20} className="text-primary" />
+                  </div>
+
+                  <div className="mb-4">
+                    <div className="w-12 h-12 rounded-full bg-zinc-800/50 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+                      <Award size={24} className="text-zinc-400 group-hover:text-primary transition-colors duration-300" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-zinc-200 group-hover:text-primary transition-colors duration-300 mb-2 leading-relaxed">
+                      {cert.name}
+                    </h3>
+                    <p className="text-sm sm:text-base text-zinc-500">{cert.issuer}</p>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-sm font-medium text-primary transition-all duration-300">
+                    <span>View Certificate</span>
+                    <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </motion.a>
               ))}
             </motion.div>
           )}
         </AnimatePresence>
       </div>
     </div>
+
   );
 };
 
