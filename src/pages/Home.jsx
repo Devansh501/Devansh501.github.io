@@ -7,6 +7,7 @@ import { ArrowRight, FileText, Github, Linkedin, Mail, Phone } from 'lucide-reac
 import { FaJava, FaPython, FaNode, FaReact, FaAws, FaDatabase, FaCode, FaWhatsapp } from "react-icons/fa6";
 import { SiJavascript, SiTypescript, SiCplusplus, SiSpringboot, SiNestjs, SiNextdotjs, SiFastapi, SiPostgresql, SiDjango, SiElectron, SiHibernate, SiSpring, SiMui, SiGooglecloud } from "react-icons/si";
 import ProjectCarousel from '../components/ProjectCarousel';
+import LightRays from '../components/LightRays';
 import { getGoogleDriveDirectLink } from '../utils/imageUtils';
 
 const skillIcons = {
@@ -69,12 +70,14 @@ const Home = () => {
   const currentCompany = currentJob ? currentJob.company : 'Freelance Gigs';
 
   return (
-    <div className="space-y-16">
-      <section className="flex flex-col gap-6">
-        <motion.div
+    <div className="relative w-full">
+      {/* Main Content */}
+      <div className="space-y-16 relative z-10 pt-4 sm:pt-0">
+        <section className="flex flex-col gap-6">
+          <motion.div
 
-          className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8"
-        >
+            className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8"
+          >
           <div className="flex-1 space-y-4">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -211,6 +214,7 @@ const Home = () => {
       <section>
         <ProjectCarousel projects={data.projects} />
       </section>
+      </div>
     </div>
   );
 };

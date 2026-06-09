@@ -33,7 +33,7 @@ const ProjectCarousel = ({ projects }) => {
   if (!projects || projects.length === 0) return null;
 
   return (
-    <div className="relative group">
+    <div className="relative">
        <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold tracking-tight">Featured Projects</h2>
           <div className="flex gap-2">
@@ -61,7 +61,7 @@ const ProjectCarousel = ({ projects }) => {
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {projects.map((project, index) => (
-          <div key={index} className="min-w-[300px] sm:min-w-[350px] snap-center">
+          <div key={index} className="w-[85vw] min-w-[320px] sm:w-[400px] sm:min-w-[400px] snap-center">
             <ProjectCard project={project} index={index} />
           </div>
         ))}
