@@ -4,12 +4,12 @@
     "role": "Software Developer",
     "email": "devanshbajpai105@gmail.com",
     "phone": "8303137340",
-    "whatsapp":"9453623480",
+    "whatsapp": "9453623480",
     "profile_image_url": "https://drive.google.com/file/d/1Ukvl2jMkDuhxqWjCEiujSr-s36Q9H3tr/view?usp=sharing",
     "github": "https://github.com/Devansh501",
     "linkedin": "https://www.linkedin.com/in/devansh501/",
-    "resume_link":"https://drive.google.com/file/d/1ZSBelsHEwVJgxgo-BU5FB6UFa9c6G_c6/view?usp=sharing",
-    "demo":"hi demo"
+    "resume_link": "https://drive.google.com/file/d/1ZSBelsHEwVJgxgo-BU5FB6UFa9c6G_c6/view?usp=sharing",
+    "demo": "hi demo"
   },
   "professional_experience": [
     {
@@ -120,11 +120,81 @@
       "github": "https://github.com/Devansh501/Morpher",
       "deployed": "https://morpher-kappa.vercel.app/",
       "highlights": [
-        "Engineered a solution for seamless conversion of audio, video, and image files in 20+ formats, eliminating the need for server uploads and enhancing user privacy.",
-        "Leveraged the ffmpeg.wasm library to enable conversions across 20+ formats.",
-        "Achieved a user-friendly interface, ensuring a positive experience for users performing diverse file conversions."
+        "Client-side file converter supporting 20+ formats for audio, video, and images.",
+        "Uses ffmpeg.wasm to process files locally in the browser without server uploads."
       ],
-      "technologies":["NextJs", "FFmpeg", "RadixUI"]
+      "technologies": [
+        "NextJs",
+        "FFmpeg",
+        "RadixUI"
+      ]
+    },
+    {
+      "name": "OpenAI Company Brochure Generator",
+      "duration": "",
+      "image_url": "https://github.com/user-attachments/assets/98d217b1-fa72-4410-aae8-3985ce069f08",
+      "github": "https://github.com/Devansh501/OpenAI-Company-Brochure-Generator",
+      "deployed": "",
+      "highlights": [
+        "Tool that creates company brochures using OpenAI models.",
+        "Generates structured marketing copy from basic inputs like a company URL or description."
+      ],
+      "technologies": [
+        "Python",
+        "OpenAI API",
+        "uv"
+      ]
+    },
+    {
+      "name": "tick tack toe",
+      "duration": "",
+      "image_url": "https://drive.google.com/file/d/1yBFi5sIUAhwacC57QJJnxIH0H9dXC_Wx/view?usp=drive_link",
+      "github": "https://github.com/Devansh501/tick-tack",
+      "deployed": "http://dev-tick-tack.surge.sh/",
+      "highlights": [
+        "Real-time multiplayer tic-tac-toe game.",
+        "Uses a React frontend and a Nakama game server backend over WebSockets."
+      ],
+      "technologies": [
+        "React",
+        "Nakama",
+        "PostgreSQL",
+        "Oracle Cloud"
+      ]
+    },
+    {
+      "name": "RAG with ollama",
+      "duration": "",
+      "image_url": "https://drive.google.com/file/d/1ZD2_7MS1F_AB9ZOZslADp2nTjFbz618j/view?usp=drive_link",
+      "github": "https://github.com/Devansh501/RAG-with-ollama",
+      "deployed": "",
+      "highlights": [
+        "Local application to chat with personal documents.",
+        "Uses Streamlit, LangChain, and Ollama for entirely local execution and data privacy."
+      ],
+      "technologies": [
+        "Streamlit",
+        "Ollama",
+        "LangChain",
+        "ChromaDB"
+      ]
+    },
+    {
+      "name": "local llm summariser",
+      "duration": "",
+      "image_url": "https://private-user-images.githubusercontent.com/81950589/576488084-44e25a5d-415a-465a-81e2-99aee639ce6a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3ODU2OTkwMjUsIm5iZiI6MTc4NTY5ODcyNSwicGF0aCI6Ii84MTk1MDU4OS81NzY0ODgwODQtNDRlMjVhNWQtNDE1YS00NjVhLTgxZTItOTlhZWU2MzljZTZhLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjA4MDIlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwODAyVDE5MjUyNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWY1Y2RmNjAwZjczZGFhZWE3ZWQ2ODg0ZmRlZTM1ODRkOTBkMmY0NTE2Yzg4NGJmMDI0ZDc1YmNlMzEwNmNmZGEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JnJlc3BvbnNlLWNvbnRlbnQtdHlwZT1pbWFnZSUyRnBuZyJ9.Gd9dJ_kJ9PxBovw9gVs4yowzcCoomEqS__yWUSKEZKQ",
+      "github": "https://github.com/Devansh501/local-llm-summariser",
+      "deployed": "",
+      "highlights": [
+        "Local tool that generates humorous markdown summaries of web pages.",
+        "Runs offline using Python, uv, and Ollama."
+      ],
+      "technologies": [
+        "Python",
+        "uv",
+        "Ollama",
+        "Qwen Model"
+      ]
     },
     {
       "name": "Link-Tree Application",
@@ -133,11 +203,96 @@
       "github": "https://github.com/Devansh501/Linktree-app",
       "deployed": "https://linktree-chi.vercel.app/",
       "highlights": [
-        "This is a Next.js-based application with MongoDB, Express.js, and Node.js, enabling users to create personalised linktrees with 10+ social media plugins.",
-        "Integrated an interface for link management, allowing users to add, edit, and delete links to showcase content effectively with 80% in-page visibilty.",
-        "Introduced shareable public links in Linktree for profile access without authentication."
+        "Application for creating customizable link pages with 10+ social media plugins.",
+        "Provides an interface to manage links and generate shareable public profiles."
       ],
-      "technologies":["NextJs", "NodeJs", "Mongodb","MaterialUI"]
+      "technologies": [
+        "NextJs",
+        "NodeJs",
+        "Mongodb",
+        "MaterialUI"
+      ]
+    },
+    {
+      "name": "Confluent Kafka trial",
+      "duration": "",
+      "image_url": "https://imgs.search.brave.com/oSl0hTmUhrtF_RTD2LvLDS6jxjpORZCrpG390DTKmHE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5zdHJpaW0uY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDI1/LzA3LzE0MTgxMzMz/L2ltYWdlNC5wbmc",
+      "github": "https://github.com/Devansh501/Confluent-Kafka-trial",
+      "deployed": "",
+      "highlights": [
+        "Kafka producer-consumer implementation for processing orders."
+      ],
+      "technologies": [
+        "Python",
+        "Docker",
+        "Kafka",
+        "confluent-kafka"
+      ]
+    },
+    {
+      "name": "IP_Finder",
+      "duration": "",
+      "image_url": "https://drive.google.com/file/d/12yaqi-4Rfn5sMJhe60CtNfRUOcP7dNqb/view?usp=sharing",
+      "github": "https://github.com/Devansh501/IP_Finder",
+      "deployed": "",
+      "highlights": [
+        "Java terminal utility to fetch geographical and network data for IP addresses.",
+        "Displays data using a custom ASCII art interface."
+      ],
+      "technologies": [
+        "Java",
+        "GSON",
+        "ipapi.co"
+      ]
+    },
+    {
+      "name": "github user activity",
+      "duration": "",
+      "image_url": "https://drive.google.com/file/d/15GFPSUknH826Pk5YUWzLjjUQWIAEXfD0/view?usp=drive_link",
+      "github": "https://github.com/Devansh501/github-user-activity",
+      "deployed": "",
+      "highlights": [
+        "Java CLI tool to view real-time GitHub events from the terminal.",
+        "Tracks push, issue, pull request, watch, and create events."
+      ],
+      "technologies": [
+        "Java",
+        "Gson",
+        "GitHub API"
+      ]
+    },
+    {
+      "name": "whackAmole",
+      "duration": "",
+      "image_url": "https://github.com/user-attachments/assets/93c2ee3b-000a-41cf-ba96-7cd629193b70",
+      "github": "https://github.com/Devansh501/whackAmole",
+      "deployed": "",
+      "highlights": [
+        "Desktop game built with Java Swing.",
+        "Features real-time score tracking and adaptive difficulty."
+      ],
+      "technologies": [
+        "Java",
+        "Swing"
+      ]
+    },
+    {
+      "name": "Prompter",
+      "duration": "",
+      "image_url": "https://github.com/Devansh501/Prompter/assets/81950589/46172409-a692-4a61-bb8e-40517e102f4a",
+      "github": "https://github.com/Devansh501/Prompter",
+      "deployed": "https://prompter-dun.vercel.app/",
+      "highlights": [
+        "MERN stack application to manage, discover, and share AI prompts."
+      ],
+      "technologies": [
+        "ReactJs",
+        "JavaScript",
+        "ExpressJs",
+        "NodeJs",
+        "MongoDb",
+        "Tailwind CSS"
+      ]
     }
   ],
   "education": {
